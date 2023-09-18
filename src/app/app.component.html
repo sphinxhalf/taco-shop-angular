@@ -1,0 +1,51 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null"
+            (click)="toggleCollapse()">
+    <div class="sidebar-logo" (click)="redirectToHome()">
+        <img src="../assets/taco_1f32e.png  " alt="logo">
+        <h1>The Little Taco Shop</h1>
+      </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard" >
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/welcome">Welcome</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/about">About LTS</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/menu">Our Menu</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/contact">Contact us</a>
+          </li>
+          <li>
+            <a></a></li>
+        </ul> 
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <h1 class="Greating">Welcome to Little Taco Shop</h1>
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <span class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></span>
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

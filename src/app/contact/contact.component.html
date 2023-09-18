@@ -1,0 +1,45 @@
+<nz-page-header
+class="site-page-header"
+nzTitle="Contact Us">
+</nz-page-header>
+<figure>
+    <img
+      [src]="imageUrl"
+      alt="tacos close up image"
+      width="400"
+      height="260"
+    />
+    <figcaption>Little Taco Shop Tacos</figcaption>
+  </figure>
+<main>
+    <article id="contact">
+        <h2>Our Contact Form</h2>
+        <nz-divider nzText="Send us messege"></nz-divider>
+    </article>
+    <nz-form [formGroup]="contactForm" (nzSubmit)="submitForm()">
+        <nz-form-item>
+          <nz-form-label nzRequired>Name:</nz-form-label>
+          <nz-form-control>
+            <input nz-input formControlName="name" />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label nzRequired>Email:</nz-form-label>
+          <nz-form-control>
+            <input nz-input formControlName="email" />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label nzRequired>Message:</nz-form-label>
+          <nz-form-control>
+            <textarea nz-input formControlName="message"></textarea>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <button nz-button [nzLoading]="submitting" (click)="handleSubmit()">Submit</button>
+
+          </nz-form-control>
+        </nz-form-item>
+      </nz-form>
+</main>
